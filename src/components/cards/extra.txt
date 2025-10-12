@@ -1,0 +1,51 @@
+                {/* Timeline */}
+                <div className="relative flex flex-col items-center pt-2 w-5">
+                    {/* Background line */}
+                    <div className="absolute top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700" />
+
+                    {/* Timeline dots */}
+                    {testExperience.map((exp, index) => (
+                        <div
+                            key={exp.id}
+                            className="relative z-10 flex flex-col items-center"
+                            style={{ marginBottom: index < testExperience.length - 1 ? '120px' : '0' }}
+                        >
+                            <div className={`w-3 h-3 rounded-full border-2 ${exp.current
+                                ? 'bg-[#3e37c8] border-[#3e37c8] shadow-lg shadow-[#3e37c8]/30'
+                                : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600'
+                                }`} />
+                        </div>
+                    ))}
+                </div>
+
+
+                const experienceList = [
+    {
+        id: 1,
+        role: "Senior Full Stack Developer",
+        company: "Tech Innovations Inc.",
+        location: "San Francisco, CA",
+        duration: "Jan 2022 - Present",
+        description: "Led development of scalable web applications using React, Node.js, and cloud technologies. Mentored junior developers and improved system performance by 40%.",
+        current: true,
+        technologies: ["React", "Node.js", "AWS", "TypeScript"]
+    },
+    {
+        id: 2,
+        role: "Frontend Developer",
+        company: "Digital Solutions Ltd.",
+        location: "Remote",
+        duration: "Jun 2020 - Dec 2021",
+        description: "Built responsive user interfaces and optimized application performance. Collaborated with design teams to implement pixel-perfect UI components.",
+        technologies: ["Vue.js", "JavaScript", "Sass", "Figma"]
+    },
+    {
+        id: 3,
+        role: "Software Development Intern",
+        company: "StartupTech",
+        location: "New York, NY",
+        duration: "Jan 2020 - May 2020",
+        description: "Contributed to mobile application development using React Native. Gained experience in agile development and version control practices.",
+        technologies: ["React Native", "JavaScript", "Git", "Firebase"]
+    }
+];
