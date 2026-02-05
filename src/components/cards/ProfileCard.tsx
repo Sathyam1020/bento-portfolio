@@ -2,14 +2,20 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, DownloadCloudIcon } from "lucide-react";
+import Image from "next/image";
 
 export const ProfileCard = () => {
   return (
     <div className="text-black dark:text-white rounded-4xl p-3 sm:p-4 md:p-6 lg:p-6 flex flex-col items-center justify-center min-h-[120px] sm:min-h-[150px] md:min-h-[200px] lg:min-h-[220px] h-full w-full">
       <div className="flex flex-col sm:flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-8 w-full max-w-sm sm:max-w-md md:max-w-3xl lg:max-w-4xl">
-        <img
+        <Image
           src="/images/portfolioImage.webp"
-          alt="Sathyam's Portfolio"
+          alt="Sathyam Sahu"
+          width={144}
+          height={144}
+          priority
+          fetchPriority="high"
+          sizes="(min-width: 1024px) 144px, (min-width: 768px) 128px, (min-width: 640px) 96px, 80px"
           className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full object-cover flex-shrink-0"
         />
 

@@ -47,6 +47,7 @@ const ProjectCard = ({
                                 src={image}
                                 alt={title}
                                 fill
+                                sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw"
                                 className="object-cover transition-all duration-300 group-hover/image:scale-105 group-hover/image:blur-sm"
                                 onError={() => setImageError(true)}
                                 onLoad={() => setImageLoading(false)}
