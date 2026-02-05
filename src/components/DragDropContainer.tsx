@@ -62,10 +62,10 @@ const customCollisionDetection = (args: any) => {
 
 interface CardData {
     id: string;
-    component: React.ReactNode;
+    render: () => React.ReactNode;
     gridSpan: string;
-    cardGridSpan: string; 
-    category: 'about' | 'projects' | 'all';
+    cardGridSpan: string;
+    category: "about" | "projects" | "all";
 }
 
 interface DragDropContainerProps {
@@ -73,72 +73,83 @@ interface DragDropContainerProps {
 }
 
 const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
-    const [allCards] = useState<CardData[]>([
-        {
-            id: "1",
-            component: <ProfileCard />,
-            gridSpan: "col-span-2 row-span-1",
-            cardGridSpan: "col-span-2 row-span-1",
-            category: "about",
-        },
-        {
-            id: "2",
-            component: <ThemeToggle />,
-            gridSpan: "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
-            cardGridSpan: "col-span-1 row-span-1",
-            category: "all",
-        },
-        {
-            id: "3",
-            component: <Socials />,
-            gridSpan: "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
-            cardGridSpan: "col-span-1 row-span-1",
-            category: "about",
-        },
-        {
-            id: "4",
-            component: <SkillsCard />,
-            gridSpan: "col-span-2 row-span-2 md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-1",
-            cardGridSpan: "col-span-2 row-span-1",
-            category: "about",
-        },
-        {
-            id: "5",
-            component: <ExperienceCard />,
-            gridSpan: "col-span-2 row-span-2 md:col-span-1 md:row-span-2 lg:col-span-1 lg:row-span-2",
-            cardGridSpan: "col-span-1 row-span-2",
-            category: "about"
-        },
-        // Project Cards
-        {
-            id: "6",
-            component: <ProjectCard {...projectsData[0]} />,
-            gridSpan: "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
-            cardGridSpan: "col-span-1 row-span-1",
-            category: "projects"
-        },
-        {
-            id: "7",
-            component: <ProjectCard {...projectsData[1]} />,
-            gridSpan: "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
-            cardGridSpan: "col-span-1 row-span-1",
-            category: "projects"
-        },
-        {
-            id: "8",
-            component: <ProjectCard {...projectsData[2]} />,
-            gridSpan: "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
-            cardGridSpan: "col-span-1 row-span-1",
-            category: "projects"
-        },
-        {
-            id: "9",
-            component: <ProjectCard {...projectsData[3]} />,
-            gridSpan: "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
-            cardGridSpan: "col-span-1 row-span-1",
-            category: "projects"
-        }
-    ]);
+    const cardDefinitions = useMemo<CardData[]>(
+        () => [
+            {
+                id: "1",
+                render: () => <ProfileCard />,
+                gridSpan: "col-span-2 row-span-1",
+                cardGridSpan: "col-span-2 row-span-1",
+                category: "about",
+            },
+            {
+                id: "2",
+                render: () => <ThemeToggle />,
+                gridSpan:
+                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                cardGridSpan: "col-span-1 row-span-1",
+                category: "all",
+            },
+            {
+                id: "3",
+                render: () => <Socials />,
+                gridSpan:
+                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                cardGridSpan: "col-span-1 row-span-1",
+                category: "about",
+            },
+            {
+                id: "4",
+                render: () => <SkillsCard />,
+                gridSpan:
+                    "col-span-2 row-span-2 md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-1",
+                cardGridSpan: "col-span-2 row-span-1",
+                category: "about",
+            },
+            {
+                id: "5",
+                render: () => <ExperienceCard />,
+                gridSpan:
+                    "col-span-2 row-span-2 md:col-span-1 md:row-span-2 lg:col-span-1 lg:row-span-2",
+                cardGridSpan: "col-span-1 row-span-2",
+                category: "about",
+            },
+            // Project Cards
+            {
+                id: "6",
+                render: () => <ProjectCard {...projectsData[0]} />,
+                gridSpan:
+                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                cardGridSpan: "col-span-1 row-span-1",
+                category: "projects",
+            },
+            {
+                id: "7",
+                render: () => <ProjectCard {...projectsData[1]} />,
+                gridSpan:
+                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                cardGridSpan: "col-span-1 row-span-1",
+                category: "projects",
+            },
+            {
+                id: "8",
+                render: () => <ProjectCard {...projectsData[2]} />,
+                gridSpan:
+                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                cardGridSpan: "col-span-1 row-span-1",
+                category: "projects",
+            },
+            {
+                id: "9",
+                render: () => <ProjectCard {...projectsData[3]} />,
+                gridSpan:
+                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                cardGridSpan: "col-span-1 row-span-1",
+                category: "projects",
+            },
+        ],
+        []
+    );
 
     // Loading state for initial animation
     const [isLoaded, setIsLoaded] = useState(false);
@@ -160,20 +171,28 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
     }, []);
 
     // Filter and sort cards based on active filter
-    const filteredAndSortedCards = useMemo(() => {
-        if (activeFilter === 'all') {
-            return allCards;
+    const cardById = useMemo(() => {
+        return new Map(cardDefinitions.map((card) => [card.id, card]));
+    }, [cardDefinitions]);
+
+    const filteredAndSortedIds = useMemo(() => {
+        if (activeFilter === "all") {
+            return cardDefinitions.map((card) => card.id);
         }
 
-        // Separate cards into matching and non-matching
-        const matchingCards = allCards.filter(card => card.category === activeFilter);
-        const otherCards = allCards.filter(card => card.category !== activeFilter);
+        const matchingCards = cardDefinitions.filter(
+            (card) => card.category === activeFilter
+        );
+        const otherCards = cardDefinitions.filter(
+            (card) => card.category !== activeFilter
+        );
 
-        // Return matching cards first, then others
-        return [...matchingCards, ...otherCards];
-    }, [allCards, activeFilter]);
+        return [...matchingCards, ...otherCards].map((card) => card.id);
+    }, [cardDefinitions, activeFilter]);
 
-    const [cards, setCards] = useState<CardData[]>(allCards);
+    const [cards, setCards] = useState<string[]>(() =>
+        cardDefinitions.map((card) => card.id)
+    );
     const [activeId, setActiveId] = useState<string | null>(null);
     const [justDropped, setJustDropped] = useState<string | null>(null);
     const [overId, setOverId] = useState<string | null>(null);
@@ -190,8 +209,8 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
 
     // Update cards when filter changes
     useEffect(() => {
-        setCards(filteredAndSortedCards);
-    }, [filteredAndSortedCards]);
+        setCards(filteredAndSortedIds);
+    }, [filteredAndSortedIds]);
 
     const sensors = useSensors(
         useSensor(PointerSensor, {
@@ -225,8 +244,8 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
         // 2. The drop target is different from the dragged item
         // 3. The drop target was being hovered over (to ensure deliberate action)
         if (over && active.id !== over.id && overId === over.id) {
-            const oldIndex = cards.findIndex(card => card.id === active.id);
-            const newIndex = cards.findIndex(card => card.id === over.id);
+            const oldIndex = cards.findIndex((cardId) => cardId === active.id);
+            const newIndex = cards.findIndex((cardId) => cardId === over.id);
 
             // Set the target card to animate to the dragged card's old position
             setSwappingToPosition(over.id as string);
@@ -254,10 +273,14 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
             onDragOver={handleDragOver}
             onDragEnd={handleDragEnd}
         >
-            <SortableContext items={cards.map(card => card.id)}>
+            <SortableContext items={cards}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 px-4 auto-rows-[300px]">
-                    {cards.map((card, index) => {
-                        const isGrayedOut = activeFilter !== 'all' && card.category !== activeFilter;
+                    {cards.map((cardId, index) => {
+                        const card = cardById.get(cardId);
+                        if (!card) return null;
+
+                        const isGrayedOut =
+                            activeFilter !== "all" && card.category !== activeFilter;
                         const isDraggedCard = activeId === card.id;
                         const showSkeleton = isDraggedCard && activeId !== null;
 
@@ -275,7 +298,7 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
                                 showSkeleton={showSkeleton}
                                 hasInitialAnimation={!hasPlayedInitialAnimation && isLoaded}
                             >
-                                {card.component}
+                                {card.render()}
                             </Card>
                         );
                     })}
@@ -287,9 +310,9 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
                     <Card
                         id={activeId}
                         isDragOverlay
-                        gridSpan={cards.find(card => card.id === activeId)?.cardGridSpan}
+                        gridSpan={cardById.get(activeId)?.cardGridSpan}
                     >
-                        {cards.find(card => card.id === activeId)?.component}
+                        {cardById.get(activeId)?.render()}
                     </Card>
                 ) : null}
             </DragOverlay>
