@@ -85,7 +85,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased font-sans max-w-5xl mx-auto py-4`}>
+      <body className={`${poppins.variable} antialiased font-sans max-w-5xl mx-auto py-4 px-3 sm:px-4`}>
         <Script
           id="ld-person"
           type="application/ld+json"

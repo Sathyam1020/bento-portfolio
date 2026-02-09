@@ -57,14 +57,14 @@ const Socials = () => {
     ];
 
     return (
-        <div className="p-3 h-full">
-            <div className='flex flex-col justify-evenly h-full'>
+        <div className="p-3 sm:p-4 h-full">
+            <div className='flex flex-col justify-start sm:justify-evenly h-full gap-2 sm:gap-3'>
                 {
                     socialLinks.map((social) => {
                         return (
                             <div
                                 key={social.name}
-                                className={`flex border-2 rounded-2xl px-2 mx-5 py-2 gap-2 items-center justify-start transition-all duration-200 cursor-pointer hover:scale-100 hover:shadow-lg ${social.name === 'GitHub'
+                                className={`flex border-2 rounded-2xl px-2 sm:px-3 mx-2 sm:mx-4 py-2 gap-2 items-center justify-start transition-all duration-200 cursor-pointer hover:scale-100 hover:shadow-lg ${social.name === 'GitHub'
                                     ? 'border-gray-800 dark:border-gray-500'
                                     : ''
                                     }`}
@@ -97,7 +97,7 @@ const Socials = () => {
                                         color: social.name === 'GitHub' ? undefined : social.lightIconText,
                                     }}
                                 >
-                                    <social.icon className='h-4 w-4' />
+                                    <social.icon className='h-4 w-4 sm:h-5 sm:w-5' />
                                 </div>
                                 <div
                                     className={`font-medium transition-all duration-200 ${social.name === 'GitHub'
@@ -108,7 +108,7 @@ const Socials = () => {
                                         color: social.name === 'GitHub' ? undefined : social.lightText,
                                     }}
                                 >
-                                    {social.name}
+                                    <span className="text-sm sm:text-base">{social.name}</span>
                                 </div>
                             </div>
                         )

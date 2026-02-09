@@ -95,8 +95,8 @@ const techStackData = [
   }, []);
 
   return (
-    <div className="flex h-full flex-col-reverse md:flex-row lg:flex-row p-6">
-      <div className="grid flex-1 grid-cols-3 gap-2 sm:grid-rows-3">
+    <div className="flex h-full flex-col-reverse md:flex-row lg:flex-row p-4 sm:p-6 gap-4">
+      <div className="grid flex-1 grid-cols-3 gap-1 sm:gap-2 sm:grid-rows-3">
         {isMounted &&
           techStackData.map((item, i) => (
             <div
@@ -108,12 +108,12 @@ const techStackData = [
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5 + i * 0.1 }}
                 className={cn(
-                  'flex cursor-default items-center justify-center rounded-xl p-5 group-hover:bg-opacity-25 group-hover:shadow-xl group-hover:[mask-image:radial-gradient(ellipse_at_center,white,transparent)]',
+                  'flex cursor-default items-center justify-center rounded-xl p-3 sm:p-5 group-hover:bg-opacity-25 group-hover:shadow-xl group-hover:[mask-image:radial-gradient(ellipse_at_center,white,transparent)]',
                   item.background,
                   item.color,
                 )}
               >
-                <div className="text-4xl">{item.icons}</div>
+                <div className="text-3xl sm:text-4xl">{item.icons}</div>
               </motion.div>
               <span
                 className={`absolute rounded-xl px-2 py-1 text-xs text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100`}

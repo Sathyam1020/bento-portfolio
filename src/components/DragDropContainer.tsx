@@ -78,7 +78,7 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
             {
                 id: "1",
                 render: () => <ProfileCard />,
-                gridSpan: "col-span-2 row-span-1",
+                gridSpan: "col-span-1 row-span-1 sm:col-span-2 sm:row-span-1",
                 cardGridSpan: "col-span-2 row-span-1",
                 category: "about",
             },
@@ -86,7 +86,7 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
                 id: "2",
                 render: () => <ThemeToggle />,
                 gridSpan:
-                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                    "col-span-1 row-span-1 sm:col-span-2 sm:row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
                 cardGridSpan: "col-span-1 row-span-1",
                 category: "all",
             },
@@ -94,7 +94,7 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
                 id: "3",
                 render: () => <Socials />,
                 gridSpan:
-                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                    "col-span-1 row-span-1 sm:col-span-2 sm:row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
                 cardGridSpan: "col-span-1 row-span-1",
                 category: "about",
             },
@@ -102,7 +102,7 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
                 id: "4",
                 render: () => <SkillsCard />,
                 gridSpan:
-                    "col-span-2 row-span-2 md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-1",
+                    "col-span-1 row-span-1 sm:col-span-2 sm:row-span-2 md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-1",
                 cardGridSpan: "col-span-2 row-span-1",
                 category: "about",
             },
@@ -110,7 +110,7 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
                 id: "5",
                 render: () => <ExperienceCard />,
                 gridSpan:
-                    "col-span-2 row-span-2 md:col-span-1 md:row-span-2 lg:col-span-1 lg:row-span-2",
+                    "col-span-1 row-span-1 sm:col-span-2 sm:row-span-2 md:col-span-1 md:row-span-2 lg:col-span-1 lg:row-span-2",
                 cardGridSpan: "col-span-1 row-span-2",
                 category: "about",
             },
@@ -118,32 +118,28 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
             {
                 id: "6",
                 render: () => <ProjectCard {...projectsData[0]} />,
-                gridSpan:
-                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                gridSpan: "col-span-1 row-span-1",
                 cardGridSpan: "col-span-1 row-span-1",
                 category: "projects",
             },
             {
                 id: "7",
                 render: () => <ProjectCard {...projectsData[1]} />,
-                gridSpan:
-                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                gridSpan: "col-span-1 row-span-1",
                 cardGridSpan: "col-span-1 row-span-1",
                 category: "projects",
             },
             {
                 id: "8",
                 render: () => <ProjectCard {...projectsData[2]} />,
-                gridSpan:
-                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                gridSpan: "col-span-1 row-span-1",
                 cardGridSpan: "col-span-1 row-span-1",
                 category: "projects",
             },
             {
                 id: "9",
                 render: () => <ProjectCard {...projectsData[3]} />,
-                gridSpan:
-                    "col-span-2 row-span-1 md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1",
+                gridSpan: "col-span-1 row-span-1",
                 cardGridSpan: "col-span-1 row-span-1",
                 category: "projects",
             },
@@ -274,7 +270,7 @@ const DragDropContainer = ({ activeFilter }: DragDropContainerProps) => {
             onDragEnd={handleDragEnd}
         >
             <SortableContext items={cards}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 px-4 auto-rows-[300px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6 px-3 sm:px-4 auto-rows-[minmax(240px,_auto)] sm:auto-rows-[minmax(260px,_auto)] lg:auto-rows-[300px]">
                     {cards.map((cardId, index) => {
                         const card = cardById.get(cardId);
                         if (!card) return null;

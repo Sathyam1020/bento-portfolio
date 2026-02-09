@@ -29,7 +29,7 @@ const experienceList = [
 const Experience = (props: Props) => {
 
     return (
-        <ScrollArea className='h-full p-6 overflow-scroll'>
+        <ScrollArea className='h-full p-4 sm:p-6 overflow-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
             {experienceList?.map((item, i) => (
                 <div key={item.id} className={`group relative pl-6 ${i > 0 ? '' : ''}`}>
                     <div className="flex flex-col mb-1 sm:mb-0">

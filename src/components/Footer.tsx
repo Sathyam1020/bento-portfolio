@@ -6,8 +6,8 @@ const Footer = () => {
   };
   return (
     <footer>
-        <div className="relative z-10 mt-10 flex flex-col items-center justify-center border-t border-gray-200 py-6">
-          <div className="flex flex-row items-center text-center text-xs text-gray-500 dark:text-slate-200">
+        <div className="relative z-10 mt-8 sm:mt-10 flex flex-col items-center justify-center border-t border-gray-200 py-5 sm:py-6 px-3 sm:px-0">
+          <div className="flex flex-col sm:flex-row items-center text-center text-xs text-gray-500 dark:text-slate-200 gap-2 sm:gap-0">
             © {getYear()} by{' '}
             <a
               href="https://www.linkedin.com/in/sathyam-sahu-824946253/"
@@ -16,7 +16,7 @@ const Footer = () => {
             >
               Sathyam Sahu 
             </a>
-            <div className="mx-2 h-5 border-r border-gray-400"></div>
+            <div className="hidden sm:block mx-2 h-5 border-r border-gray-400"></div>
             <a
               href=""
               target="_blank"
